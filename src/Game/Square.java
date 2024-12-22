@@ -1,14 +1,17 @@
 package Game;
 
+import Color.Color;
 import Pieces.Piece;
 
 public class Square {
-    Posicion posicion;
-    Piece currPiece;
+    private Posicion posicion;
+    private Piece currPiece;
+    private Color color;
 
     public Square(int col, char row){
 
         createPosicion(col, row);
+        squareColor();
         currPiece = null;
     }
 
@@ -30,10 +33,30 @@ public class Square {
         posicion = new Posicion(col, intRow);
     }
 
+    public void squareColor(){
+        int col = posicion.getCol();
+        int row = posicion.getRow();
+
+        if((col + row) % 2 == 0 ){
+            color = Color.White;
+        } else{
+            color = Color.Black;
+        }
+
+    }
+
     public void setCurrPiece(Piece piece){
 
         currPiece = piece;
         piece.setPosicion(this);
     }
 
+
+    public Piece getCurrPiece() {
+        return currPiece;
+    }
+
+    public Color getColor(){
+        return color;
+    }
 }

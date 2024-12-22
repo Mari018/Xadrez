@@ -5,6 +5,7 @@ import Color.Color;
 public class Player {
     private String name;
     private Color playerColor;
+    private boolean inCheck;
 
 
     public Player(String name){

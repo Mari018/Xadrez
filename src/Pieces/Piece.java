@@ -26,5 +26,7 @@ public abstract class Piece {
         currPosicion = square;
     }
 
-
+    public Color getColor(){
+        return getColor;
+    }
 }

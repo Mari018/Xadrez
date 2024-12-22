@@ -16,6 +16,7 @@ public class Game {
 
         this.players = players;
         createBoard();
+        drawBoard();
     }
 
     private void createBoard() {
@@ -59,5 +60,79 @@ public class Game {
         }
     }
 
+    public boolean isEmpty(int x, int y) {
 
+        if (x < 0 || x > 7) {
+            return true;
+        }
+
+        if (y < 0 || y > 7) {
+            return true;
+        }
+
+        if (board[x][y].getCurrPiece() == null) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean outOfBoard(int x, int y) {
+        if (x < 0 || x > 7) {
+            return true;
+        }
+
+        if (y < 0 || y > 7) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public Square getSquare(int x, int y) {
+
+        return board[x][y];
+    }
+
+    public void drawBoard() {
+
+
+        for (int i = 7; i < -1; i++) {
+            for (int j = 0; j < 8; j++) {
+
+                Piece piece = board[i][j].getCurrPiece();
+                if (piece == null) {
+                    if (board[i][j].getColor() == Color.White) {
+                        System.out.println("  ");
+                    } else {
+                        System.out.println("&&");
+                    }
+                }
+
+                if ((piece instanceof Pawn)) {
+                    if (piece.getColor() == Color.White) {
+                        System.out.println(" wP");
+                    } else {
+                        System.out.println(" bP");
+                    }
+
+                    if ((piece instanceof King)) {
+                        if (piece.getColor() == Color.White) {
+                            System.out.println(" wK");
+                        } else {
+                            System.out.println(" bK");
+                        }
+                    }
+                }
+            }
+            System.out.println(" " + (i + 1));
+
+        }
+
+        for (int i = 0; i < 8; i++) {
+            System.out.println(" " + row[i]);
+        }
+        System.out.println();
+    }
 }
+
