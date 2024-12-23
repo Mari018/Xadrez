@@ -8,6 +8,6 @@ public class Main {
                             new Player("Inês")};
 
         Game game = new Game(players);
-
+        game.start();
     }
 }

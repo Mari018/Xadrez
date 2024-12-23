@@ -8,6 +8,7 @@ public abstract class Piece {
     protected Color getColor;
     protected PieceType type;
     protected Posicion posicion;
+    protected int moveCount;
 
     public Piece(Color getColor){
 
@@ -15,18 +16,18 @@ public abstract class Piece {
 
     }
 
-    public abstract void move();
+    public abstract void move(int x, int y, int newX, int newY);
 
     public Posicion getPosicion() {
         return posicion;
     }
 
     public void setPosicion(Square square){
-
         currPosicion = square;
     }
 
     public Color getColor(){
         return getColor;
     }
+
 }

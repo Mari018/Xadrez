@@ -10,13 +10,23 @@ public class Game {
     private Player[] players;
     private Square[][] board;
     private char[] row = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+    private int[] col = {'1' , '2', '3', '4', '5', '6', '7', '8'};
 
 
     public Game(Player[] players) {
 
         this.players = players;
+
+    }
+
+    public void start(){
+
+        chooseWhitePlr();
         createBoard();
+        addPieces(players[0]);
+        addPieces(players[1]);
         drawBoard();
+        winner();
     }
 
     private void createBoard() {
@@ -31,7 +41,7 @@ public class Game {
         }
     }
 
-    private void addPieces(Player player) {
+    public void addPieces(Player player) {
         Color playerColor = player.getPlayerColor();
         Piece piece;
 
@@ -97,8 +107,9 @@ public class Game {
     public void drawBoard() {
 
 
-        for (int i = 7; i < -1; i++) {
+        for (int i = 7; i < 0; i--) {
             for (int j = 0; j < 8; j++) {
+                System.out.println(" " + col[i]);
 
                 Piece piece = board[i][j].getCurrPiece();
                 if (piece == null) {
@@ -134,5 +145,42 @@ public class Game {
         }
         System.out.println();
     }
+
+    private void chooseWhitePlr(){
+        int player1Move = players[0].rollTheDice();
+        int player2Move = players[1].rollTheDice();
+        players[0].setPlayerColor(Color.White);
+        players[1].setPlayerColor(Color.Black);
+
+        System.out.println("Let's start!");
+        System.out.println(players[0].getName() + " roll " + player1Move + " and " + players[1].getName() + " roll " + player2Move);
+
+        if(player1Move == player2Move){
+            chooseWhitePlr();
+        }
+
+        if(player1Move > player2Move){
+            System.out.println(players[0].getName() + " starts!\n");
+        } else {
+            System.out.println(players[1].getName() + " starts!\n");
+            swapPlayer();
+        }
+    }
+
+    private void swapPlayer(){
+        Player swap = players[0];
+        players[0] = players[1];
+        players[1] = swap;
+    }
+
+    private void winner(){
+
+        if(!players[0].isInCheck()){
+            System.out.println(players[0].getName() + " wins");
+        } else{
+            System.out.println(players[1].getName() + " wins");
+        }
+    }
+
 }
 
