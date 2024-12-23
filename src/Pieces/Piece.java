@@ -30,4 +30,8 @@ public abstract class Piece {
         return getColor;
     }
 
+    public int getMoveCount(){
+        return moveCount;
+    }
+
 }

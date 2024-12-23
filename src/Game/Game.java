@@ -10,7 +10,6 @@ public class Game {
     private Player[] players;
     private Square[][] board;
     private char[] row = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
-    private int[] col = {'1' , '2', '3', '4', '5', '6', '7', '8'};
 
 
     public Game(Player[] players) {
@@ -36,6 +35,7 @@ public class Game {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 board[i][j] = new Square(i, row[j]);
+
             }
 
         }
@@ -107,16 +107,16 @@ public class Game {
     public void drawBoard() {
 
 
-        for (int i = 7; i < 0; i--) {
-            for (int j = 0; j < 8; j++) {
-                System.out.println(" " + col[i]);
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                System.out.print(" "+ row[i] );
 
                 Piece piece = board[i][j].getCurrPiece();
                 if (piece == null) {
                     if (board[i][j].getColor() == Color.White) {
-                        System.out.println("  ");
+                        System.out.println("   ");
                     } else {
-                        System.out.println("&&");
+                        System.out.println(" &&");
                     }
                 }
 
@@ -136,13 +136,10 @@ public class Game {
                     }
                 }
             }
-            System.out.println(" " + (i + 1));
+            //System.out.println(" " + (i + 1));
 
         }
 
-        for (int i = 0; i < 8; i++) {
-            System.out.println(" " + row[i]);
-        }
         System.out.println();
     }
 

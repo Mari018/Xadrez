@@ -18,6 +18,7 @@ public class Square {
     public void createPosicion(int col,char row){
 
         int intRow = 0;
+        int intCol = 0;
 
         switch (row){
             case 'a' -> intRow = 0;
@@ -30,7 +31,19 @@ public class Square {
             case 'h' -> intRow = 7;
         }
 
-        posicion = new Posicion(col, intRow);
+        switch (col){
+            case '1' -> intCol = 0;
+            case '2' -> intCol = 1;
+            case '3' -> intCol = 2;
+            case '4' -> intCol = 3;
+            case '5' -> intCol = 4;
+            case '6' -> intCol = 5;
+            case '7' -> intCol = 6;
+            case '8' -> intCol = 7;
+        }
+
+        posicion = new Posicion(intCol, intRow);
+
     }
 
     public void squareColor(){
