@@ -13,12 +13,14 @@ public class Game {
         players[1] = new Player("Inês");
 
         board = new Board(players);
-        chooseWhtPlayer();
-        board.addPieces(players[0]);
-        board.addPieces(players[1]);
+
     }
 
     public void start(){
+        chooseWhtPlayer();
+        board.addPieces(players[0]);
+        board.addPieces(players[1]);
+        board.drawBoard();
         winner();
     }
 

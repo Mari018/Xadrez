@@ -16,8 +16,6 @@ public class Board {
 
         this.players = players;
         createBoard();
-        drawBoard();
-
     }
 
     public void createBoard() {
@@ -106,29 +104,30 @@ public class Board {
                 Piece piece = board[i][j].getCurrPiece();
                 if (piece == null) {
                     if (board[i][j].getColor() == Color.White) {
-                        System.out.println("   ");
+                        System.out.print("    ");
                     } else {
-                        System.out.println(" &&");
+                        System.out.print(" && ");
                     }
                 }
 
                 if ((piece instanceof Pawn)) {
                     if (piece.getColor() == Color.White) {
-                        System.out.println(" wP");
+                        System.out.print(" wP ");
                     } else {
-                        System.out.println(" bP");
+                        System.out.print(" bP ");
                     }
                 }
 
                 if ((piece instanceof King)) {
                     if (piece.getColor() == Color.White) {
-                        System.out.println(" wK");
+                        System.out.print(" wK ");
                     } else {
-                        System.out.println(" bK");
+                        System.out.print(" bK ");
                     }
                 }
 
             }
+            System.out.println();
 
         }
         System.out.println();
