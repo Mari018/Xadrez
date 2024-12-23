@@ -18,7 +18,7 @@ public class Game {
 
     }
 
-    public void start(){
+    public void start() {
 
         chooseWhitePlr();
         createBoard();
@@ -109,7 +109,7 @@ public class Game {
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                System.out.print(" "+ row[i] );
+                System.out.print(" " + i + row[j]);
 
                 Piece piece = board[i][j].getCurrPiece();
                 if (piece == null) {
@@ -126,24 +126,25 @@ public class Game {
                     } else {
                         System.out.println(" bP");
                     }
+                }
 
-                    if ((piece instanceof King)) {
-                        if (piece.getColor() == Color.White) {
-                            System.out.println(" wK");
-                        } else {
-                            System.out.println(" bK");
-                        }
+                if ((piece instanceof King)) {
+                    if (piece.getColor() == Color.White) {
+                        System.out.println(" wK");
+                    } else {
+                        System.out.println(" bK");
                     }
                 }
+
             }
-            //System.out.println(" " + (i + 1));
+            System.out.println(" " + (i + 1));
 
         }
 
         System.out.println();
     }
 
-    private void chooseWhitePlr(){
+    private void chooseWhitePlr() {
         int player1Move = players[0].rollTheDice();
         int player2Move = players[1].rollTheDice();
         players[0].setPlayerColor(Color.White);
@@ -152,11 +153,11 @@ public class Game {
         System.out.println("Let's start!");
         System.out.println(players[0].getName() + " roll " + player1Move + " and " + players[1].getName() + " roll " + player2Move);
 
-        if(player1Move == player2Move){
+        if (player1Move == player2Move) {
             chooseWhitePlr();
         }
 
-        if(player1Move > player2Move){
+        if (player1Move > player2Move) {
             System.out.println(players[0].getName() + " starts!\n");
         } else {
             System.out.println(players[1].getName() + " starts!\n");
@@ -164,17 +165,17 @@ public class Game {
         }
     }
 
-    private void swapPlayer(){
+    private void swapPlayer() {
         Player swap = players[0];
         players[0] = players[1];
         players[1] = swap;
     }
 
-    private void winner(){
+    private void winner() {
 
-        if(!players[0].isInCheck()){
+        if (!players[0].isInCheck()) {
             System.out.println(players[0].getName() + " wins");
-        } else{
+        } else {
             System.out.println(players[1].getName() + " wins");
         }
     }
