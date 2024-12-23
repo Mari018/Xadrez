@@ -99,37 +99,42 @@ public class Board {
 
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
-                System.out.print(" " + col[i] + row[j]);
 
                 Piece piece = board[i][j].getCurrPiece();
                 if (piece == null) {
                     if (board[i][j].getColor() == Color.White) {
-                        System.out.print("    ");
+                        System.out.print("   ");
                     } else {
-                        System.out.print(" && ");
+                        System.out.print(" &&");
                     }
                 }
 
                 if ((piece instanceof Pawn)) {
                     if (piece.getColor() == Color.White) {
-                        System.out.print(" wP ");
+                        System.out.print(" wP");
                     } else {
-                        System.out.print(" bP ");
+                        System.out.print(" bP");
                     }
                 }
 
                 if ((piece instanceof King)) {
                     if (piece.getColor() == Color.White) {
-                        System.out.print(" wK ");
+                        System.out.print(" wK");
                     } else {
-                        System.out.print(" bK ");
+                        System.out.print(" bK");
                     }
                 }
 
             }
-            System.out.println();
-
+            System.out.print(" ");
+            System.out.println(i + 1);
         }
+
+        for (int i = 0; i < board.length; i++) {
+            System.out.print(" " + row[i] + " ");
+        }
+
+        System.out.println();
         System.out.println();
     }
 }
