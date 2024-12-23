@@ -8,7 +8,7 @@ public class Player {
     private String name;
     private Color playerColor;
     private boolean inCheck;
-    private ArrayList<String> allMoves;
+    private int move;
 
 
     public Player(String name){
@@ -31,17 +31,21 @@ public class Player {
         this.playerColor = playerColor;
     }
 
-    public void addMove(String move){
-        allMoves.add(move);
-    }
-
     public String getName(){
         return name;
+    }
+
+    public int getMove() {
+        return move;
+    }
+    public void addMove(int move){
+       this.move += move;
     }
 
     public boolean isInCheck(){
         return inCheck = true;
     }
+
 
 
 }

@@ -1,4 +1,5 @@
 package Pieces;
+import Game.Board;
 import Game.Square;
 import Game.Posicion;
 import Color.Color;
@@ -9,6 +10,7 @@ public abstract class Piece {
     protected PieceType type;
     protected Posicion posicion;
     protected int moveCount;
+    protected Board board;
 
     public Piece(Color getColor){
 
@@ -32,6 +34,10 @@ public abstract class Piece {
 
     public int getMoveCount(){
         return moveCount;
+    }
+
+    public void addMove(){
+        moveCount++;
     }
 
 }

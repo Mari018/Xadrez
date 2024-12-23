@@ -24,7 +24,7 @@ public class Board {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                board[i][j] = new Square(i, row[j]);
+                board[i][j] = new Square(col[i], row[j]);
 
             }
 
@@ -127,14 +127,28 @@ public class Board {
 
             }
             System.out.print(" ");
-            System.out.println(col[i]);
+            System.out.println(row[i]);
         }
 
         for (int i = 0; i < board.length; i++) {
-            System.out.print(" " + row[i] + " ");
+            System.out.print(" " + col[i] + " ");
         }
 
         System.out.println("\n");
+    }
+
+    public void movePiece(Piece piece,int x, int y){
+
+        piece.setPosicion(null);
+        board[x][y].setCurrPiece(piece);
+
+        if(players[0].getPlayerColor() == Color.White){
+            players[0].addMove(1);
+        } else {
+            players[1].addMove(1);
+        }
+
+
     }
 }
 
