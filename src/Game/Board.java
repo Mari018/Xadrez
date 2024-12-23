@@ -127,15 +127,14 @@ public class Board {
 
             }
             System.out.print(" ");
-            System.out.println(i + 1);
+            System.out.println(col[i]);
         }
 
         for (int i = 0; i < board.length; i++) {
             System.out.print(" " + row[i] + " ");
         }
 
-        System.out.println();
-        System.out.println();
+        System.out.println("\n");
     }
 }
 
