@@ -1,5 +1,6 @@
 package Pieces;
 import Game.Board;
+import Game.Player;
 import Game.Square;
 import Game.Posicion;
 import Color.Color;
@@ -12,6 +13,7 @@ public abstract class Piece {
     protected int moveCount;
     protected Board board;
 
+
     public Piece(Color getColor){
 
         this.getColor = getColor;
@@ -19,6 +21,16 @@ public abstract class Piece {
     }
 
     public abstract void move(int x, int y, int newX, int newY);
+
+    public boolean checkIsCapturable(Piece otherPiece, Piece piece){
+
+        if(otherPiece.getColor != piece.getColor){
+            return true;
+        }
+        System.out.println("You can't capture your own piece");
+        return false;
+    }
+
 
     public Posicion getPosicion() {
         return posicion;

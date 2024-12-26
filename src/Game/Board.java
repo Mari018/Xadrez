@@ -39,10 +39,12 @@ public class Board {
             for (int i = 0; i < 8; i++) {
                 piece = new Pawn(Color.White);
                 board[1][i].setCurrPiece(piece);
+                player.getOwnPieces().add(piece);
             }
 
             piece = new King(Color.White);
             board[0][4].setCurrPiece(piece);
+            player.getOwnPieces().add(piece);
 
         } else {
 
@@ -50,10 +52,12 @@ public class Board {
                 for (int i = 0; i < 8; i++) {
                     piece = new Pawn(Color.Black);
                     board[6][i].setCurrPiece(piece);
+                    player.getOwnPieces().add(piece);
                 }
 
                 piece = new King(Color.Black);
                 board[7][3].setCurrPiece(piece);
+                player.getOwnPieces().add(piece);
             }
 
 
@@ -150,5 +154,7 @@ public class Board {
 
 
     }
+
+
 }
 

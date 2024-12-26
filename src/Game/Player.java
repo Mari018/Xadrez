@@ -1,14 +1,18 @@
 package Game;
 
 import Color.Color;
+import Pieces.Piece;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private String name;
     private Color playerColor;
     private boolean inCheck;
     private int move;
+    private ArrayList<Piece> capturedPieces = new ArrayList<>();
+    private ArrayList<Piece> ownPieces = new ArrayList<>();
 
 
     public Player(String name){
@@ -38,12 +42,21 @@ public class Player {
     public int getMove() {
         return move;
     }
+
     public void addMove(int move){
        this.move += move;
     }
 
     public boolean isInCheck(){
         return inCheck = true;
+    }
+
+    public ArrayList<Piece> getCapturedPieces(){
+        return capturedPieces;
+    }
+
+    public ArrayList<Piece> getOwnPieces(){
+        return ownPieces;
     }
 
 

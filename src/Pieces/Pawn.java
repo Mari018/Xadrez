@@ -19,33 +19,39 @@ public class Pawn extends Piece {
         x = posicion.getCol();
         y = posicion.getRow();
 
-        if (!board.isEmpty(newX, newY)) {
+        if (!board.isEmpty(newX, newY) && board.outOfBoard(newX, newY)) {
             if (getMoveCount() == 0) {
                 if (getColor() == Color.White) {
                     if (newX == x && newY == y + 2) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     }
+
                     if (newX == x && newY == y + 1) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     }
                 } else {
+
                     if (newX == x && newY == y + 2) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     }
+
                     if (newX == x && newY == y + 1) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     }
                 }
             } else {
+
                 if (getColor() == Color.White) {
+
                     if (newX == x && newY == y + 1) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     } else {
+
                         if (newX == x && newY == y + 1) {
                             board.movePiece(this, newX, newY);
                             addMove();
@@ -55,6 +61,8 @@ public class Pawn extends Piece {
                 }
 
             }
+        } else {
+            System.out.println("Illegal move, try other one.");
         }
     }
 }
