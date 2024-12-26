@@ -22,37 +22,28 @@ public class Pawn extends Piece {
         if (!board.isEmpty(newX, newY) && board.outOfBoard(newX, newY)) {
             if (getMoveCount() == 0) {
                 if (getColor() == Color.White) {
-                    if (newX == x && newY == y + 2) {
+                    if (newX == x && newY == y + 2 || newX == x && newY == y + 1) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     }
 
-                    if (newX == x && newY == y + 1) {
-                        board.movePiece(this, newX, newY);
-                        addMove();
-                    }
                 } else {
 
-                    if (newX == x && newY == y + 2) {
-                        board.movePiece(this, newX, newY);
-                        addMove();
-                    }
-
-                    if (newX == x && newY == y + 1) {
+                    if (newX == x && newY == y - 2 || newX == x && newY == y - 1) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     }
                 }
+
             } else {
 
                 if (getColor() == Color.White) {
-
                     if (newX == x && newY == y + 1) {
                         board.movePiece(this, newX, newY);
                         addMove();
                     } else {
 
-                        if (newX == x && newY == y + 1) {
+                        if (newX == x && newY == y - 1) {
                             board.movePiece(this, newX, newY);
                             addMove();
                         }
@@ -61,6 +52,10 @@ public class Pawn extends Piece {
                 }
 
             }
+        }
+
+        if (board.isEmpty(newX, newY) && board.outOfBoard(newX, newY) && checkIsCapturable() {
+
         } else {
             System.out.println("Illegal move, try other one.");
         }

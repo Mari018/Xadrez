@@ -22,15 +22,14 @@ public abstract class Piece {
 
     public abstract void move(int x, int y, int newX, int newY);
 
-    public boolean checkIsCapturable(Piece otherPiece, Piece piece){
+    public boolean checkIsCapturable(Piece otherPiece){
 
-        if(otherPiece.getColor != piece.getColor){
-            return true;
+        if(otherPiece.getColor != this.getColor){
+            return false;
         }
         System.out.println("You can't capture your own piece");
-        return false;
+        return true;
     }
-
 
     public Posicion getPosicion() {
         return posicion;

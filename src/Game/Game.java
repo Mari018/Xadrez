@@ -1,6 +1,7 @@
 package Game;
 
 import Color.Color;
+import Pieces.Piece;
 
 public class Game {
     Board board;
@@ -22,6 +23,21 @@ public class Game {
         board.addPieces(players[1]);
         board.drawBoard();
         winner();
+    }
+
+    public void removePiece(Piece otherPiece){
+
+        if(players[1].getOwnPieces().contains(otherPiece)){
+
+            players[0].getCapturedPieces().add(otherPiece);
+            players[1].getOwnPieces().remove(otherPiece);
+
+        } else {
+
+            players[1].getCapturedPieces().add(otherPiece);
+            players[0].getOwnPieces().remove(otherPiece);
+
+        }
     }
 
     private void chooseWhtPlayer(){

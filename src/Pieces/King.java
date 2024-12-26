@@ -17,45 +17,16 @@ public class King extends Piece {
 
         if (!board.isEmpty(newX, newY) && board.outOfBoard(newX, newY)) {
 
-            if (newX == x && newY == y + 1) {
+            if (newX == x && newY == y + 1 || newX == x && newY == y - 1 || newX == x - 1 && newY == y || newX == x + 1 && newY == y ) {
                 board.movePiece(this, newX, newY);
                 addMove();
             }
 
-            if (newX == x && newY == y - 1) {
+            if (newX == x + 1 && newY == y + 1 || newX == x + 1 && newY == y - 1 || newX == x - 1 && newY == y + 1 || newX == x - 1 && newY == y - 1){
                 board.movePiece(this, newX, newY);
                 addMove();
             }
 
-            if (newX == x - 1 && newY == y) {
-                board.movePiece(this, newX, newY);
-                addMove();
-            }
-
-            if (newX == x + 1 && newY == y) {
-                board.movePiece(this, newX, newY);
-                addMove();
-            }
-
-            if (newX == x + 1 && newY == y + 1){
-                board.movePiece(this, newX, newY);
-                addMove();
-            }
-
-            if (newX == x + 1 && newY == y - 1){
-                board.movePiece(this, newX, newY);
-                addMove();
-            }
-
-            if (newX == x - 1 && newY == y + 1){
-                board.movePiece(this, newX, newY);
-                addMove();
-            }
-
-            if (newX == x - 1 && newY == y - 1){
-                board.movePiece(this, newX, newY);
-                addMove();
-            }
         } else {
             System.out.println("Illegal move, try other one.");
         }
